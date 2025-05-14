@@ -1,3 +1,26 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+html { 
+font-size: 16px;
+}
+
+
+h1{
+    font-size: 2rem;
+    font-weight: 900;
+}
+h2{
+    font-size: 2rem;
+    font-weight: 700;
+}
+button{
+    font-weight: 900;
+}
+
+a:focus {
+  outline: 3px solid #000; /* Adicione a cor do foco conforme o seu design */
+  outline-offset: 2px;
+}
+

@@ -1,24 +1,59 @@
-import DarkModeToggle from "../componets/DarkModeToggle";
-import CTAButton from "../componets/CTAButton";
-import NavMenu from "../componets/NavMenu";
-import MobileMenu from "../componets/MobileMenu";
+import { useMobileMenu } from '../hooks/useMobileMenu'; // ajuste o caminho
+import { FaBars, FaTimes } from "react-icons/fa";
+import NavMenu from "./NavMenu";
+import DarkModeToggle from "./DarkModeToggle";
+import CTAButton from "./CTAButton";
 
-function Header() {
+const MobileMenu = () => {
+   const { isOpen, toggleMenu} = useMobileMenu();
 
   return (
-    <header className="flex flex-row py-2 w-full max-w-5xl justify-between min-h-[72px] gap-[24px] items-center">
-        <svg className="w-20 h-5 fill-black dark:fill-white" xmlns="http://www.w3.org/2000/svg" width="78" height="13" viewBox="0 0 78 13" fill="none">
+    <>
+      {/* Botão hamburguer */}
+      <div className="lg:hidden relative z-50 flex items-center">
+        <button onClick={toggleMenu} className={isOpen ? "hidden" : "text-2xl text-black dark:text-white"}>
+          {isOpen ? <FaTimes /> : <FaBars />}
+        </button>
+      </div>
+
+      {/* Backdrop clicável */}
+      {isOpen && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-50 z-40"
+          onClick={toggleMenu}
+        />
+      )}
+
+      {/* Menu lateral */}
+      <div
+        className={`fixed top-0 left-0 h-full w-full  max-w-sm bg-white dark:bg-black shadow-xl transform transition-transform duration-300 ease-in-out z-50 ${
+          isOpen ? "translate-x-0" : "-translate-x-full"
+        }`}
+      >
+        <div className="gap-[32px] h-full flex flex-col p-4 items-start px-">
+          <div className="flex w-full justify-between items-center">
+            <DarkModeToggle/>
+            <svg className="w-20 h-5 fill-black dark:fill-white" xmlns="http://www.w3.org/2000/svg" width="78" height="13" viewBox="0 0 78 13" fill="none">
             <path d="M0.328 12V0.799999H5.176C6.17867 0.799999 7.04267 0.965333 7.768 1.296C8.49333 1.616 9.05333 2.08 9.448 2.688C9.84267 3.296 10.04 4.02133 10.04 4.864C10.04 5.696 9.84267 6.416 9.448 7.024C9.05333 7.62133 8.49333 8.08 7.768 8.4C7.04267 8.72 6.17867 8.88 5.176 8.88H1.768L2.92 7.744V12H0.328ZM7.448 12L4.648 7.936H7.416L10.248 12H7.448ZM2.92 8.032L1.768 6.816H5.032C5.832 6.816 6.42933 6.64533 6.824 6.304C7.21867 5.952 7.416 5.472 7.416 4.864C7.416 4.24533 7.21867 3.76533 6.824 3.424C6.42933 3.08267 5.832 2.912 5.032 2.912H1.768L2.92 1.68V8.032ZM12.8776 5.312H18.2696V7.328H12.8776V5.312ZM13.0696 9.92H19.1656V12H10.4936V0.799999H18.9576V2.88H13.0696V9.92ZM24.988 12.192C24.124 12.192 23.3187 12.0533 22.572 11.776C21.836 11.488 21.196 11.0827 20.652 10.56C20.108 10.0373 19.6813 9.424 19.372 8.72C19.0733 8.016 18.924 7.24267 18.924 6.4C18.924 5.55733 19.0733 4.784 19.372 4.08C19.6813 3.376 20.108 2.76267 20.652 2.24C21.2067 1.71733 21.852 1.31733 22.588 1.04C23.324 0.752 24.1293 0.608 25.004 0.608C25.9747 0.608 26.8493 0.778666 27.628 1.12C28.4173 1.45067 29.0787 1.94133 29.612 2.592L27.948 4.128C27.564 3.69067 27.1373 3.36533 26.668 3.152C26.1987 2.928 25.6867 2.816 25.132 2.816C24.6093 2.816 24.1293 2.90133 23.692 3.072C23.2547 3.24267 22.876 3.488 22.556 3.808C22.236 4.128 21.9853 4.50667 21.804 4.944C21.6333 5.38133 21.548 5.86667 21.548 6.4C21.548 6.93333 21.6333 7.41867 21.804 7.856C21.9853 8.29333 22.236 8.672 22.556 8.992C22.876 9.312 23.2547 9.55733 23.692 9.728C24.1293 9.89867 24.6093 9.984 25.132 9.984C25.6867 9.984 26.1987 9.87733 26.668 9.664C27.1373 9.44 27.564 9.104 27.948 8.656L29.612 10.192C29.0787 10.8427 28.4173 11.3387 27.628 11.68C26.8493 12.0213 25.9693 12.192 24.988 12.192ZM29.7624 12V0.799999H34.6104C35.613 0.799999 36.477 0.965333 37.2024 1.296C37.9277 1.616 38.4877 2.08 38.8824 2.688C39.277 3.296 39.4744 4.02133 39.4744 4.864C39.4744 5.696 39.277 6.416 38.8824 7.024C38.4877 7.62133 37.9277 8.08 37.2024 8.4C36.477 8.72 35.613 8.88 34.6104 8.88H31.2024L32.3544 7.744V12H29.7624ZM36.8824 12L34.0824 7.936H36.8504L39.6824 12H36.8824ZM32.3544 8.032L31.2024 6.816H34.4664C35.2664 6.816 35.8637 6.64533 36.2584 6.304C36.653 5.952 36.8504 5.472 36.8504 4.864C36.8504 4.24533 36.653 3.76533 36.2584 3.424C35.8637 3.08267 35.2664 2.912 34.4664 2.912H31.2024L32.3544 1.68V8.032ZM44.904 12.192C43.3147 12.192 42.072 11.7493 41.176 10.864C40.28 9.97867 39.832 8.71467 39.832 7.072V0.799999H42.424V6.976C42.424 8.04267 42.6427 8.81067 43.08 9.28C43.5173 9.74933 44.1307 9.984 44.92 9.984C45.7093 9.984 46.3227 9.74933 46.76 9.28C47.1973 8.81067 47.416 8.04267 47.416 6.976V0.799999H49.976V7.072C49.976 8.71467 49.528 9.97867 48.632 10.864C47.736 11.7493 46.4933 12.192 44.904 12.192ZM53.0699 12V2.912H49.4859V0.799999H59.2459V2.912H55.6619V12H53.0699ZM61.4245 5.312H66.8165V7.328H61.4245V5.312ZM61.6165 9.92H67.7125V12H59.0405V0.799999H67.5045V2.88H61.6165V9.92ZM68.1749 12V0.799999H70.7669V12H68.1749ZM71.8249 12V0.799999H74.4169V12H71.8249ZM75.4749 8.112L74.9789 0.799999H77.9549L77.4589 8.112H75.4749ZM76.4669 12.128C76.0189 12.128 75.6509 11.984 75.3629 11.696C75.0749 11.408 74.9309 11.0667 74.9309 10.672C74.9309 10.2667 75.0749 9.93067 75.3629 9.664C75.6509 9.38667 76.0189 9.248 76.4669 9.248C76.9255 9.248 77.2935 9.38667 77.5709 9.664C77.8589 9.93067 78.0029 10.2667 78.0029 10.672C78.0029 11.0667 77.8589 11.408 77.5709 11.696C77.2935 11.984 76.9255 12.128 76.4669 12.128Z"/>
         </svg>
-        <NavMenu items={["Home", "Sobre nós", "Depoimentos", "Empresas e colaboradores"]} 
-        className="max-lg:hidden"/>
-        <div className="gap-[24px] flex flex-row items-center flex-end max-lg:hidden">
-            <DarkModeToggle className="max-lg:hidden"/>
-            <CTAButton className="max-lg:hidden" href="login"/>
+            <button
+              onClick={toggleMenu}
+              className="text-2xl text-black dark:text-white"
+            >
+              <FaTimes />
+            </button>
+          </div>
+        
+        <NavMenu items={["Home", "Sobre nós", "Depoimentos", "Empresas e colaboradores"]}
+        className="flex-col text-left items-start my-4" />
+        
+        <CTAButton children = "Fazer login" href="login"/>
+        <CTAButton children = "Cadastre-se" href="register"/>
+        
         </div>
-        <MobileMenu />
-    </header>
-  )
-}
+      </div>
+    </>
+  );
+};
 
-export default Header
+export default MobileMenu;

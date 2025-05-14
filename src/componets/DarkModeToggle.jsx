@@ -1,3 +1,4 @@
+import { FiMoon, FiSun } from "react-icons/fi";
 import useDarkMode from "../hooks/useDarkMode";
 
 export default function DarkModeToggle() {
@@ -6,12 +7,15 @@ export default function DarkModeToggle() {
   return (
     <button
       onClick={() => setDarkMode(!darkMode)}
-      className={`${darkMode ? "flex-row" : "flex-row-reverse"} + p-2 rounded-full text-base
-      border-2 border-black flex items-center gap-[8px] h-min w-22 dark:border-white dark:text-white dark:bg-black`}
+      className={`
+        flex items-center gap-2 px-2 py-2 rounded-full border 
+        transition-colors duration-300 
+        ${darkMode ? "bg-black border-white text-white" : "bg-white border-black text-black"}
+      `}
       aria-label="Toggle Dark Mode"
     >
-      {darkMode ? "Dark" : "Light"}
-      <span className="bg-black w-4 h-4 flex rounded-full dark:bg-white"></span>
+      {darkMode ? <FiMoon className="w-4 h-4" /> : <FiSun className="w-4 h-4 text-black" />}
+      <span className="text-xs">{darkMode ? "Dark" : "Light"}</span>
     </button>
   );
 }
