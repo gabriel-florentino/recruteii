@@ -1,4 +1,4 @@
-import { useMobileMenu } from '../hooks/useMobileMenu'; // ajuste o caminho
+import { useMobileMenu } from '../hooks/useMobileMenu'; 
 import { FaBars, FaTimes } from "react-icons/fa";
 import NavMenu from "./NavMenu";
 import DarkModeToggle from "./DarkModeToggle";
@@ -44,7 +44,13 @@ const MobileMenu = () => {
             </button>
           </div>
         
-        <NavMenu items={["Home", "Sobre nós", "Depoimentos", "Empresas e colaboradores"]}
+        <NavMenu
+        items={[
+          { label: "Home", path: "/" },
+          { label: "Sobre nós", path: "/#sobre-nos" },
+          { label: "Depoimentos", path: "/#depoimentos" },
+          { label: "Empresas e colaboradores", path: "/#empresas-e-colaboradores" }
+        ]}
         className="flex-col text-left items-start my-4" />
         
         <CTAButton children = "Fazer login" href="login"/>

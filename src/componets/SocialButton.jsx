@@ -2,7 +2,8 @@ import { Link } from 'react-router-dom';
 import { useMobileMenu } from '../hooks/useMobileMenu'; //Importando hook personalizado
 
 function CTAButton({
-  children = "Fazer login", //Children: texto interno do botão
+  children = "", //Children: texto interno do botão
+  SVG,
   href = "", //Href: caminho da URL (sem a `/` inicial)
   className = "", //ClassName: classes adicionais de Tailwind
   ariaLabel = "Botão de chamada para ação" //AriaLabel: acessibilidade para leitores de tela
@@ -11,12 +12,13 @@ function CTAButton({
   const {closeMenu} = useMobileMenu();  //Chama a função closeMenu do hook
 
   return (
-    <Link
+    <a
       onClick={closeMenu} //Quando o botão é pressionado o menu lateral se fecha automaticamente
-      to={href.startsWith("/") ? href : `/${href}`} //Referencia para onde o botão ira levar
+      href={href} //Referencia para onde o botão ira levar
       className={`
         ${className}
-        max-lg:w-full text-base px-6 py-4 rounded-full shrink-0
+        flex flex-row items-center justify-around  
+        p-1 pr-3 rounded-lg shrink-0 w-64
         bg-black text-white dark:bg-white dark:text-black
         transition-all duration-300 text-center
         hover:scale-105 hover:bg-gray-800 dark:hover:bg-gray-200
@@ -25,8 +27,9 @@ function CTAButton({
       `}
       aria-label={ariaLabel} //Para acessibilidade
     >
-      {children} 
-    </Link>
+    {SVG}
+    {children} 
+    </a>
   );
 }
 
