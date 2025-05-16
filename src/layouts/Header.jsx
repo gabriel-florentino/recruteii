@@ -25,7 +25,7 @@ function Header() {
 
         <div className="gap-[24px] flex flex-row items-center flex-end max-lg:hidden">
             <DarkModeToggle className="max-lg:hidden"/>
-            <CTAButton className="max-lg:hidden" href="login"/>
+            <CTAButton ariaLabel="Botao para chegar a pagina de login" className="max-lg:hidden" href="login"/>
         </div>
         <MobileMenu />
     </header>

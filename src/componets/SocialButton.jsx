@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'; 
-import { useMobileMenu } from '../hooks/useMobileMenu'; //Importando hook personalizado
+import { useMobileMenu } from '../context/MobileMenuContext'; //Importando hook personalizado
 
 function CTAButton({
   children = "", //Children: texto interno do botão

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'; 
-import { useMobileMenu } from '../hooks/useMobileMenu'; //Importando hook personalizado
+import { useMobileMenu } from '../context/MobileMenuContext'; //Importando hook personalizado
 
 function CTAButton({
   children = "Fazer login", //Children: texto interno do botão
@@ -16,9 +16,9 @@ function CTAButton({
       to={href.startsWith("/") ? href : `/${href}`} //Referencia para onde o botão ira levar
       className={`
         ${className}
-        max-lg:w-full text-base px-6 py-4 rounded-full shrink-0
+        max-lg:w-full px-6 py-4 rounded-full shrink-0
         bg-black text-white dark:bg-white dark:text-black
-        transition-all duration-300 text-center
+        transition-all duration-300 text-center font-bold
         hover:scale-105 hover:bg-gray-800 dark:hover:bg-gray-200
         focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2
         focus-visible:ring-black dark:focus-visible:ring-white

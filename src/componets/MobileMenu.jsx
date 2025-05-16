@@ -1,4 +1,4 @@
-import { useMobileMenu } from '../hooks/useMobileMenu'; 
+import { useMobileMenu } from '../context/MobileMenuContext'; 
 import { FaBars, FaTimes } from "react-icons/fa";
 import NavMenu from "./NavMenu";
 import DarkModeToggle from "./DarkModeToggle";

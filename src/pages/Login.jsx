@@ -1,7 +1,9 @@
+import Index from "../features/auth/login/index"
+
 function Login() {
 
   return (
-    <h1>Login</h1>
+    <Index/>
   )
 }
 
