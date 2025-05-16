@@ -27,10 +27,13 @@ src/<br/>
 │ ├── login/<br/>
 │ │ ├── componentes/<br/>
 │ │ │ ├── Form.jsx<br/>
-│ │ │ ├── ButtonGoogle.jsx<br/>
-│ │ │ └── Shared.jsx<br/>
+│ │ │ └── ButtonGoogle.jsx<br/>
 │ │ └── index.jsx<br/>
-│ └── register/ # Em desenvolvimento<br/>
+│ └── register/<br/>
+| |  ├── componentes/<br/>
+| |  | └──Form.jsx<br/>
+| |  └── index.jsx<br/>
+| └── Shared.jsx<br/><br/>
 ├── pages/ # Páginas da aplicação<br/>
 ├── routes/ # Definição das rotas<br/>
 └── App.jsx<br/>
