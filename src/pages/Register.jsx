@@ -1,7 +1,8 @@
+import Index from "../features/auth/register/index"
 function Register() {
 
   return (
-    <h1>Register</h1>
+    <Index/>
   )
 }
 
