@@ -1,12 +1,65 @@
-# React + Vite
+# 🧠 Recrutei — Plataforma de Recrutamento Reverso
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Recrutei** é uma plataforma de recrutamento reverso que centraliza talentos e facilita que empresas encontrem profissionais baseados em suas habilidades, portfólios e projetos. O foco é entregar autonomia para o candidato e eficiência para quem contrata.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Tecnologias
 
-## Expanding the ESLint configuration
+- [React.js](https://reactjs.org/)
+- [Vite](https://vitejs.dev/)
+- [TailwindCSS](https://tailwindcss.com/)
+- [React Router](https://reactrouter.com/)
+- [Context API](https://react.dev/learn/scaling-up-with-reducer-and-context)
+- [Node.js (em breve)](https://nodejs.org/)
+- [MySQL (em breve)](https://www.mysql.com/)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 📁 Estrutura de Pastas
+
+src/
+├── assets/ # Imagens e ícones
+├── components/ # Componentes reutilizáveis
+├── context/ # Contextos globais (ex: tema, menu)
+├── features/
+│ └── auth/
+│ ├── login/
+│ │ ├── componentes/
+│ │ │ ├── Form.jsx
+│ │ │ ├── ButtonGoogle.jsx
+│ │ │ └── Shared.jsx
+│ │ └── index.jsx
+│ └── register/ # Em desenvolvimento
+├── pages/ # Páginas da aplicação
+├── routes/ # Definição das rotas
+└── App.jsx
+
+yaml
+Copiar
+Editar
+
+---
+
+## 🧩 Funcionalidades (Login)
+
+- Login com e-mail e senha
+- Login com Google (em breve)
+- Suporte a tema escuro (dark mode)
+- Validação de campos
+- Componentização reutilizável (`InputBase`, `ButtonGoogle`, etc)
+
+---
+
+## 📦 Instalação
+
+```bash
+# Clone o projeto
+git clone https://github.com/seu-usuario/recrutei.git
+cd recrutei
+
+# Instale as dependências
+npm install
+
+# Rode a aplicação
+npm run dev
