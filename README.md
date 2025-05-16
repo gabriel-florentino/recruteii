@@ -18,26 +18,22 @@
 
 ## 📁 Estrutura de Pastas
 
-src/
-├── assets/ # Imagens e ícones
-├── components/ # Componentes reutilizáveis
-├── context/ # Contextos globais (ex: tema, menu)
-├── features/
-│ └── auth/
-│ ├── login/
-│ │ ├── componentes/
-│ │ │ ├── Form.jsx
-│ │ │ ├── ButtonGoogle.jsx
-│ │ │ └── Shared.jsx
-│ │ └── index.jsx
-│ └── register/ # Em desenvolvimento
-├── pages/ # Páginas da aplicação
-├── routes/ # Definição das rotas
-└── App.jsx
-
-yaml
-Copiar
-Editar
+src/<br/>
+├── assets/ # Imagens e ícones<br/>
+├── components/ # Componentes reutilizáveis<br/>
+├── context/ # Contextos globais (ex: tema, menu)<br/>
+├── features/<br/>
+│ └── auth/<br/>
+│ ├── login/<br/>
+│ │ ├── componentes/<br/>
+│ │ │ ├── Form.jsx<br/>
+│ │ │ ├── ButtonGoogle.jsx<br/>
+│ │ │ └── Shared.jsx<br/>
+│ │ └── index.jsx<br/>
+│ └── register/ # Em desenvolvimento<br/>
+├── pages/ # Páginas da aplicação<br/>
+├── routes/ # Definição das rotas<br/>
+└── App.jsx<br/>
 
 ---
 
